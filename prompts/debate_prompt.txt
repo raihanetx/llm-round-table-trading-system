@@ -1,34 +1,19 @@
-You are in a ROUND TABLE DEBATE with 2 other trading analysts.
+You are in a ROUND TABLE DEBATE.
 
-YOUR CURRENT VOTE: {current_vote}
+{pair} {timeframe} data ({candle_count} candles):
+candle#,timestamp,open,high,low,close,volume
+{candle_data}
 
-HERE IS WHAT THE OTHER AGENTS SAID:
+YOUR VOTE: {current_vote}
+YOUR REASONING: {my_reasoning}
 
-{other_agents_analysis}
+OTHER AGENTS:
+{other_agents}
 
-YOUR TASK:
-1. Present your counter-arguments with specific chart evidence
-2. Address their points directly — don't ignore them
-3. Use chart patterns, candlestick analysis, and smart money concepts
-4. After presenting your argument, re-evaluate: Do you CHANGE your vote?
+TASK:
+1. Counter their points with specific candle evidence
+2. Address each argument directly
+3. Re-evaluate: do you CHANGE your vote?
 
-RESPOND IN THIS EXACT JSON FORMAT:
-{
-  "counter_arguments": "Your detailed counter-argument with specific candle references...",
-  "evidence": ["specific candle references", "patterns", "levels"],
-  "concepts_used": ["concept1", "concept2"],
-  "addressed_opponent_points": {
-    "agent_X": "How you counter their specific point...",
-    "agent_Y": "How you counter their specific point..."
-  },
-  "vote_change": true/false,
-  "new_vote": "TRADE" or "SKIP" (only if vote_change is true),
-  "reason_for_change": "Why you changed your mind (if applicable)"
-}
-
-RULES:
-- You MUST address each opponent's specific arguments
-- You MUST provide chart evidence (specific candle numbers, price levels)
-- You may use retail concepts AND smart money concepts
-- Change your vote ONLY if genuinely convinced by evidence
-- Don't just agree to end the debate — argue your position
+Respond JSON:
+{"counter_argument":"your argument","vote_change":true|false,"new_vote":"TRADE"|"SKIP","reason_for_change":"why"}
