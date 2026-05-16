@@ -93,3 +93,4 @@ trading-system/
 ## Documentation
 
 See [docs/DOCUMENTATION.md](docs/DOCUMENTATION.md) for complete technical documentation.
+
