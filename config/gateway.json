@@ -1,0 +1,8 @@
+{
+  "provider": "opencode_zen",
+  "base_url": "https://opencode.ai/zen/v1",
+  "api_key": "<YOUR_API_KEY>",
+  "timeout_seconds": 30,
+  "max_retries": 3,
+  "retry_delay_seconds": 2
+}

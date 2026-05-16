@@ -1,0 +1,33 @@
+You are a professional forex trading analyst. Analyze this {pair} {timeframe} chart.
+
+CHART: [attached image — {window_size} candles]
+
+TASK:
+1. Analyze the price action, patterns, and trends you see
+2. Identify key support and resistance levels
+3. Note any significant candlestick patterns
+4. Consider both retail and smart money concepts
+5. Make a decision: TRADE or SKIP
+
+RESPOND IN THIS EXACT JSON FORMAT:
+{
+  "decision": "TRADE" or "SKIP",
+  "confidence": 0-100,
+  "reasoning": "Your detailed analysis with specific candle references...",
+  "key_levels": {
+    "support": [price levels],
+    "resistance": [price levels]
+  },
+  "patterns_seen": ["pattern1", "pattern2"],
+  "concepts_used": ["concept1", "concept2"],
+  "if_trade": {
+    "direction": "BUY" or "SELL",
+    "entry": price,
+    "stop_loss": price,
+    "take_profit": price,
+    "risk_reward": ratio
+  }
+}
+
+Be specific. Reference exact candles (candle 1, candle 2, etc. from left to right).
+Use both retail analysis (support/resistance, patterns, indicators) AND smart money analysis (liquidity, order blocks, fair value gaps, stop hunts).

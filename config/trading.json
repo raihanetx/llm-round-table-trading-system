@@ -1,0 +1,15 @@
+{
+  "pair": "EUR/USD",
+  "timeframe": "5min",
+  "window_size": 50,
+  "min_risk_reward": 1.5,
+  "max_debate_rounds": 3,
+  "default_lot_size": 0.01,
+  "max_sl_pips": 50,
+  "min_tp_pips": 30,
+  "consensus_threshold": {
+    "skip": 2,
+    "trade_unanimous": 3,
+    "debate_required": "2_trade_1_skip"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "alpha": {
+    "model_id": "deepseek-v4-flash-free",
+    "endpoint": "/chat/completions",
+    "name": "Agent Alpha",
+    "role": "Momentum & Trend Analysis",
+    "temperature": 0.3,
+    "max_tokens": 1000
+  },
+  "beta": {
+    "model_id": "qwen3.6-plus-free",
+    "endpoint": "/chat/completions",
+    "name": "Agent Beta",
+    "role": "Pattern & Risk Assessment",
+    "temperature": 0.3,
+    "max_tokens": 1000
+  },
+  "gamma": {
+    "model_id": "ring-2.6-1t-free",
+    "endpoint": "/chat/completions",
+    "name": "Agent Gamma",
+    "role": "Conservative Risk Guard",
+    "temperature": 0.3,
+    "max_tokens": 1000
+  }
+}
