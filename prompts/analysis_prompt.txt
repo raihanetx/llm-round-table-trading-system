@@ -1,12 +1,21 @@
 You are a professional forex trading analyst. Analyze this {pair} {timeframe} chart.
 
-CHART: [attached image — {window_size} candles]
+The following is a complete analysis package with:
+- ASCII candlestick chart (█=Bullish body, ░=Bearish body, │=Wick)
+- MA(7) and MA(20) moving averages marked on chart
+- Auto-detected Support (─) and Resistance (═) levels
+- Volume bars at bottom
+- Full OHLC data table
+- Pre-computed technical indicators (RSI, ATR)
+- Detected candlestick patterns
+
+{chart_analysis}
 
 TASK:
-1. Analyze the price action, patterns, and trends you see
+1. Analyze the price action, patterns, and trends you see in the data above
 2. Identify key support and resistance levels
 3. Note any significant candlestick patterns
-4. Consider both retail and smart money concepts
+4. Consider both retail concepts (S/R, patterns, indicators) AND smart money concepts (liquidity traps, stop hunts, order blocks, fair value gaps)
 5. Make a decision: TRADE or SKIP
 
 RESPOND IN THIS EXACT JSON FORMAT:

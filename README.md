@@ -18,7 +18,9 @@ python src/main.py
 ## How It Works
 
 ```
-Dataset (1000 candles) → Build chart (50 candles) → Send to 3 LLMs
+Dataset (1000 candles) → Build text chart (50 candles) → Send to 3 LLMs
+    ↓
+Text-based analysis: ASCII candlesticks + OHLC data + indicators (no image needed)
     ↓
 Each agent votes: TRADE or SKIP (with reasoning)
     ↓
@@ -31,6 +33,9 @@ Monitor candles → TP or SL hit
     ↓
 Rebuild chart from that point → Loop back
 ```
+
+**Note:** Uses text-based chart analysis (ASCII candlesticks + structured data) instead of images.
+This means it works with ANY LLM model — no vision/image support required.
 
 ## Free Models (via OpenCode Zen)
 

@@ -26,6 +26,10 @@ LOGS_DIR = PROJECT_ROOT / "logs"
 # Create logs directory if it doesn't exist
 LOGS_DIR.mkdir(exist_ok=True)
 
+# Import text chart generator (no vision/image needed)
+sys.path.insert(0, str(Path(__file__).parent))
+from text_chart import load_csv, generate_analysis_text, generate_llm_prompt
+
 
 def load_config():
     """Load all configuration files"""
@@ -104,14 +108,41 @@ def main():
         sys.exit(1)
     
     print(f"\n🔑 API Key: {api_key[:12]}...{api_key[-6:]}")
-    
-    # TODO: Implement the actual trading loop
+
+    # Load dataset
+    dataset_path = DATA_DIR / "eurusd_5m_sample.csv"
+    if not dataset_path.exists():
+        print(f"\n❌ ERROR: Dataset not found at {dataset_path}")
+        sys.exit(1)
+
+    candles = load_csv(str(dataset_path))
+    print(f"\n📊 Loaded {len(candles)} candles from {dataset_path.name}")
+
+    # Generate text-based chart analysis (no image/vision needed)
+    window_size = configs["trading"]["window_size"]
+    window = candles[:window_size]
+    print(f"🪟  Analyzing window: candles 1–{window_size}")
+
+    # Show the analysis package
+    analysis = generate_analysis_text(window)
+    print("\n" + analysis)
+
+    # Show what gets sent to each LLM agent
     print("\n" + "=" * 60)
-    print("⚠️  System skeleton loaded. Implementation in progress.")
+    print("📝 LLM PROMPT PREVIEW")
+    print("=" * 60)
+    prompt = generate_llm_prompt(
+        window,
+        pair=configs["trading"]["pair"],
+        timeframe=configs["trading"]["timeframe"],
+    )
+    print(f"\nPrompt length: {len(prompt)} chars (~{len(prompt)//4} tokens)")
+
+    print("\n" + "=" * 60)
+    print("⚠️  Text chart system loaded. Next steps:")
     print("=" * 60)
     print("""
-    Next steps:
-    1. Implement chart_generator.py — OHLC → TradingView-style chart
+    1. ✅ text_chart.py — Text-based chart generator (DONE)
     2. Implement gateway_client.py — OpenCode Zen API client
     3. Implement agent_runner.py — Run 3 agents in parallel
     4. Implement consensus_engine.py — Check votes, trigger debate
